@@ -23,7 +23,8 @@ export default function AnimalProfileScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
   
-  const pet = useKittyStore(state => state.pets.find(p => p.id === id));
+  const pets = useKittyStore(state => state.pets);
+  const pet = pets.find(p => p.id === id);
   const users = useKittyStore(state => state.users);
   const addCommentToPet = useKittyStore(state => state.addCommentToPet);
   const currentUser = useKittyStore(state => state.currentUser);

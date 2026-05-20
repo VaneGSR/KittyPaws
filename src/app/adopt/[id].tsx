@@ -20,7 +20,8 @@ export default function AdoptRequestScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams(); // petId
 
-  const pet = useKittyStore(state => state.pets.find(p => p.id === id));
+  const pets = useKittyStore(state => state.pets);
+  const pet = pets.find(p => p.id === id);
   const currentUser = useKittyStore(state => state.currentUser);
   const submitAdoptionRequest = useKittyStore(state => state.submitAdoptionRequest);
   const updateVerificationStatus = useKittyStore(state => state.updateVerificationStatus);

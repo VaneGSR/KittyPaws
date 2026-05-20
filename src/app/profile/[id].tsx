@@ -21,7 +21,8 @@ export default function PublicProfileScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
 
-  const user = useKittyStore(state => state.users.find(u => u.id === id));
+  const users = useKittyStore(state => state.users);
+  const user = users.find(u => u.id === id);
   const currentUser = useKittyStore(state => state.currentUser);
   const pets = useKittyStore(state => state.pets);
   const updates = useKittyStore(state => state.updates);

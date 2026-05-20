@@ -20,8 +20,10 @@ export default function PostAdoptionTrackingScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams(); // petId
 
-  const pet = useKittyStore(state => state.pets.find(p => p.id === id));
-  const updates = useKittyStore(state => state.updates.filter(u => u.petId === id));
+  const pets = useKittyStore(state => state.pets);
+  const allUpdates = useKittyStore(state => state.updates);
+  const pet = pets.find(p => p.id === id);
+  const updates = allUpdates.filter(u => u.petId === id);
   const currentUser = useKittyStore(state => state.currentUser);
   const addPostAdoptionUpdate = useKittyStore(state => state.addPostAdoptionUpdate);
 
