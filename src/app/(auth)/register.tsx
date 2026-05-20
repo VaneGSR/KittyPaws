@@ -17,6 +17,8 @@ import * as DocumentPicker from 'expo-document-picker';
 import { useKittyStore } from '../../store/kittyStore';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { CustomInput } from '../../components/CustomInput';
+import { CustomButton } from '../../components/CustomButton';
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -232,9 +234,7 @@ export default function RegisterScreen() {
             <View style={[styles.radioOutline, role === 'dador' && styles.radioFilled]} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.primaryButton} onPress={handleNextStep}>
-            <Text style={styles.primaryButtonText}>Siguiente</Text>
-          </TouchableOpacity>
+          <CustomButton title="Siguiente" onPress={handleNextStep} />
         </View>
       )}
 
@@ -251,71 +251,60 @@ export default function RegisterScreen() {
           </TouchableOpacity>
           <Text style={styles.avatarHelp}>Toca la foto para cambiar tu avatar</Text>
 
-          <Text style={styles.label}>Nombre completo</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Juan Pérez Domínguez" 
+          <CustomInput
+            label="Nombre completo"
             value={fullName}
             onChangeText={setFullName}
+            placeholder="Juan Pérez Domínguez"
           />
 
-          <Text style={styles.label}>Nombre de usuario (@)</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="juan_adopta" 
+          <CustomInput
+            label="Nombre de usuario (@)"
             value={username}
             onChangeText={setUsername}
-            autoCapitalize="none"
+            placeholder="juan_adopta"
           />
 
-          <Text style={styles.label}>Correo electrónico</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="juan@correo.com" 
+          <CustomInput
+            label="Correo electrónico"
             value={email}
             onChangeText={setEmail}
+            placeholder="juan@correo.com"
             keyboardType="email-address"
-            autoCapitalize="none"
           />
 
-          <Text style={styles.label}>Número de teléfono</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="3312345678" 
+          <CustomInput
+            label="Número de teléfono"
             value={phone}
             onChangeText={setPhone}
+            placeholder="3312345678"
             keyboardType="phone-pad"
           />
 
-          <Text style={styles.label}>Ciudad / Estado</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Guadalajara, Jalisco" 
+          <CustomInput
+            label="Ciudad / Estado"
             value={city}
             onChangeText={setCity}
+            placeholder="Guadalajara, Jalisco"
           />
 
-          <Text style={styles.label}>Contraseña</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="••••••••" 
-            secureTextEntry 
+          <CustomInput
+            label="Contraseña"
             value={password}
             onChangeText={setPassword}
+            placeholder="••••••••"
+            secureTextEntry
           />
 
-          <Text style={styles.label}>Confirmar contraseña</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="••••••••" 
-            secureTextEntry 
+          <CustomInput
+            label="Confirmar contraseña"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
+            placeholder="••••••••"
+            secureTextEntry
           />
 
-          <TouchableOpacity style={styles.primaryButton} onPress={handleNextStep}>
-            <Text style={styles.primaryButtonText}>Siguiente</Text>
-          </TouchableOpacity>
+          <CustomButton title="Siguiente" onPress={handleNextStep} />
         </View>
       )}
 
@@ -449,17 +438,13 @@ export default function RegisterScreen() {
             </>
           )}
 
-          <TouchableOpacity 
-            style={[styles.primaryButton, { marginTop: 30 }]} 
-            onPress={handleSubmit}
+          <CustomButton 
+            title="Finalizar registro" 
+            onPress={handleSubmit} 
+            loading={loading}
             disabled={loading}
-          >
-            {loading ? (
-              <ActivityIndicator color={Colors.white} />
-            ) : (
-              <Text style={styles.primaryButtonText}>Finalizar registro</Text>
-            )}
-          </TouchableOpacity>
+            style={{ marginTop: 30 }}
+          />
         </View>
       )}
 

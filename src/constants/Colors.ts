@@ -1,16 +1,16 @@
 export const Colors = {
-  primary: '#FFB6C1',       // Rosa pastel
-  secondary: '#FFC0CB',     // Rosa claro
-  accent: '#FF69B4',        // Rosa vibrante para CTAs
-  background: '#FFF0F5',    // Lavender blush
-  card: '#FFFFFF',          // Fondo tarjetas
-  text: '#3D1C2E',          // Vino oscuro (principal)
-  textSecondary: '#9E6B7E', // Vino claro (secundario)
-  success: '#A8E6CF',       // Verde menta
-  error: '#FF8B8B',         // Rojo pastel
-  border: '#F8D7E3',        // Borde rosado suave
+  primary: '#8A2BE2',       // Púrpura (Vanessa's accent)
+  secondary: '#DA70D6',     // Magenta/Rosa (Vanessa's secondary)
+  accent: '#8A2BE2',        // Púrpura principal para CTAs
+  background: '#FAF0E6',    // Crema/Dazno (Fondo de Vanessa)
+  card: '#FFFFFF',          // Fondo de tarjetas blanco
+  text: '#2E2D2D',          // Carbón oscuro para textos principales
+  textSecondary: '#7F7F7F', // Gris medio para textos secundarios
+  success: '#4CD964',       // Verde éxito
+  error: '#FF6B6B',         // Rojo peligro
+  border: '#EADBC8',        // Borde beige/crema
   white: '#FFFFFF',
-  grayLight: '#F3F4F6',
-  grayMedium: '#D1D5DB',
-  overlay: 'rgba(61, 28, 46, 0.4)' // Fondo semi-transparente usando vino oscuro
+  grayLight: '#FFF5EE',     // Durazno muy claro
+  grayMedium: '#FFE4E1',    // Durazno medio
+  overlay: 'rgba(46, 45, 45, 0.4)' // Fondo semi-transparente
 };

@@ -16,6 +16,8 @@ import * as ImagePicker from 'expo-image-picker';
 import { useKittyStore } from '../../store/kittyStore';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { CustomInput } from '../../components/CustomInput';
+import { CustomButton } from '../../components/CustomButton';
 
 export default function NewPetScreen() {
   const router = useRouter();
@@ -172,12 +174,11 @@ export default function NewPetScreen() {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Datos Básicos</Text>
 
-          <Text style={styles.label}>Nombre de la Mascota</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Ej: Max, Pelusa, Bella" 
+          <CustomInput
+            label="Nombre de la Mascota"
             value={name}
             onChangeText={setName}
+            placeholder="Ej: Max, Pelusa, Bella"
           />
 
           <Text style={styles.label}>Especie</Text>
@@ -193,20 +194,18 @@ export default function NewPetScreen() {
             ))}
           </View>
 
-          <Text style={styles.label}>Raza / Tipo</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Ej: Mestizo, Golden Retriever, Siames" 
+          <CustomInput
+            label="Raza / Tipo"
             value={breed}
             onChangeText={setBreed}
+            placeholder="Ej: Mestizo, Golden Retriever, Siames"
           />
 
-          <Text style={styles.label}>Edad aproximada</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Ej: 2 meses, 1 año, Senior" 
+          <CustomInput
+            label="Edad aproximada"
             value={age}
             onChangeText={setAge}
+            placeholder="Ej: 2 meses, 1 año, Senior"
           />
 
           <Text style={styles.label}>Tamaño</Text>
@@ -222,22 +221,20 @@ export default function NewPetScreen() {
             ))}
           </View>
 
-          <Text style={styles.label}>Ciudad / Ubicación</Text>
-          <TextInput 
-            style={styles.input} 
-            placeholder="Ej: Guadalajara, Jalisco" 
+          <CustomInput
+            label="Ciudad / Ubicación"
             value={city}
             onChangeText={setCity}
+            placeholder="Ej: Guadalajara, Jalisco"
           />
 
-          <Text style={styles.label}>Historia / Descripción</Text>
-          <TextInput 
-            style={styles.textArea} 
+          <CustomInput
+            label="Historia / Descripción"
+            value={description}
+            onChangeText={setDescription}
             placeholder="Describe su comportamiento, temperamento, por qué necesita un hogar y qué cuidados requiere..."
             multiline
             numberOfLines={4}
-            value={description}
-            onChangeText={setDescription}
           />
         </View>
 
@@ -348,9 +345,12 @@ export default function NewPetScreen() {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
-          <Text style={styles.submitBtnText}>Publicar para Adopción</Text>
-        </TouchableOpacity>
+        <CustomButton
+          title="Publicar para Adopción"
+          onPress={handleSubmit}
+          variant="primary"
+          style={{ marginBottom: 40 }}
+        />
       </ScrollView>
     </SafeAreaView>
   );

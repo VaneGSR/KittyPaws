@@ -13,6 +13,8 @@ import { useRouter } from 'expo-router';
 import { useKittyStore } from '../../store/kittyStore';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import { CustomInput } from '../../components/CustomInput';
+import { CustomButton } from '../../components/CustomButton';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -83,48 +85,32 @@ export default function LoginScreen() {
       </View>
 
       <View style={styles.form}>
-        <Text style={styles.label}>Correo electrónico</Text>
-        <View style={styles.inputContainer}>
-          <Ionicons name="mail-outline" size={20} color={Colors.textSecondary} style={styles.inputIcon} />
-          <TextInput 
-            style={styles.input}
-            placeholder="ejemplo@correo.com"
-            placeholderTextColor={Colors.textSecondary}
-            value={email}
-            onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-        </View>
+        <CustomInput
+          label="Correo electrónico"
+          value={email}
+          onChangeText={setEmail}
+          placeholder="ejemplo@correo.com"
+          keyboardType="email-address"
+        />
 
-        <Text style={styles.label}>Contraseña</Text>
-        <View style={styles.inputContainer}>
-          <Ionicons name="lock-closed-outline" size={20} color={Colors.textSecondary} style={styles.inputIcon} />
-          <TextInput 
-            style={styles.input}
-            placeholder="••••••••"
-            placeholderTextColor={Colors.textSecondary}
-            secureTextEntry={!showPassword}
-            value={password}
-            onChangeText={setPassword}
-            autoCapitalize="none"
-          />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Ionicons 
-              name={showPassword ? "eye-off-outline" : "eye-outline"} 
-              size={20} 
-              color={Colors.textSecondary} 
-            />
-          </TouchableOpacity>
-        </View>
+        <CustomInput
+          label="Contraseña"
+          value={password}
+          onChangeText={setPassword}
+          placeholder="••••••••"
+          secureTextEntry
+        />
 
         <TouchableOpacity style={styles.forgotBtn} onPress={handleForgotPassword}>
           <Text style={styles.forgotText}>¿Olvidaste tu contraseña?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.loginButtonText}>Ingresar</Text>
-        </TouchableOpacity>
+        <CustomButton
+          title="Ingresar"
+          onPress={handleLogin}
+          variant="primary"
+          style={{ marginVertical: 10 }}
+        />
 
         <View style={styles.dividerContainer}>
           <View style={styles.dividerLine} />
@@ -132,10 +118,12 @@ export default function LoginScreen() {
           <View style={styles.dividerLine} />
         </View>
 
-        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
-          <Ionicons name="logo-google" size={20} color={Colors.text} style={{ marginRight: 10 }} />
-          <Text style={styles.googleButtonText}>Acceder con Google</Text>
-        </TouchableOpacity>
+        <CustomButton
+          title="Acceder con Google"
+          onPress={handleGoogleLogin}
+          variant="outline"
+          style={{ marginVertical: 10 }}
+        />
       </View>
 
       {/* SECCIÓN DE ACCESO RÁPIDO PARA PRUEBAS ACADÉMICAS */}
