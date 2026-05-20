@@ -75,7 +75,23 @@ export default function OnboardingScreen() {
         </TouchableOpacity>
       </View>
       
-      <Text style={styles.footerText}>Desarrollado para fines académicos por Vanessa & Perla</Text>
+      <View style={styles.creditsContainer}>
+        <Text style={styles.creditsTitle}>Desarrollado para fines académicos</Text>
+        
+        <View style={styles.studentContainer}>
+          <Text style={styles.studentName}>Saavedra Ramírez Vanessa Guadalupe</Text>
+          <Text style={styles.studentName}>Cerpa Rodríguez Perla Esmeralda</Text>
+        </View>
+
+        <View style={styles.courseContainer}>
+          <Text style={styles.courseDetail}>
+            <Text style={styles.boldLabel}>Profesor: </Text>Gutiérrez Cobián Zeus Emanuel
+          </Text>
+          <Text style={styles.courseDetail}>
+            <Text style={styles.boldLabel}>Materia: </Text>Desarrollo de aplicaciones web en la nube
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -159,10 +175,56 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: Colors.text,
   },
-  footerText: {
+  creditsContainer: {
+    width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    borderRadius: 20,
+    padding: 16,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(138, 43, 226, 0.12)', // Sutil borde púrpura
+    shadowColor: Colors.text,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.03,
+    shadowRadius: 6,
+    elevation: 2,
+  },
+  creditsTitle: {
+    fontFamily: 'Nunito_700Bold',
+    fontSize: 10,
+    color: Colors.primary,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  studentContainer: {
+    alignItems: 'center',
+    marginBottom: 10,
+    gap: 2,
+  },
+  studentName: {
+    fontFamily: 'Nunito_600SemiBold',
+    fontSize: 13,
+    color: Colors.text,
+    textAlign: 'center',
+  },
+  courseContainer: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(138, 43, 226, 0.08)',
+    paddingTop: 10,
+    width: '100%',
+    alignItems: 'center',
+    gap: 3,
+  },
+  courseDetail: {
     fontFamily: 'Lato_400Regular',
-    fontSize: 12,
+    fontSize: 11,
     color: Colors.textSecondary,
-    opacity: 0.6,
+    textAlign: 'center',
+  },
+  boldLabel: {
+    fontFamily: 'Nunito_700Bold',
+    color: Colors.text,
   },
 });
